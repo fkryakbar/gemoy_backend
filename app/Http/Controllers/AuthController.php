@@ -66,4 +66,9 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
         return response()->json($this->payload([], 200, 'Token Deleted'));
     }
+
+    public function auth_check(Request $request)
+    {
+        return response()->json($this->payload($request->user(), 200, 'Authenticated'));
+    }
 }

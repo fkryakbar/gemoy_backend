@@ -32,6 +32,8 @@ Route::group(['prefix' => 'public'], function () {
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('auth/auth-check', [AuthController::class, 'auth_check']);
+
     Route::get('post/get', [PostController::class, 'index']);
     Route::post('post/store', [PostController::class, 'store']);
     Route::post('post/delete', [PostController::class, 'delete']);
