@@ -59,4 +59,11 @@ class AuthController extends Controller
             'username' => 'Credentials are invalid or account never really existed'
         ]);
     }
+
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json($this->payload([], 200, 'Token Deleted'));
+    }
 }
