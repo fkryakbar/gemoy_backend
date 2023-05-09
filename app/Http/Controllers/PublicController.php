@@ -17,7 +17,7 @@ class PublicController extends Controller
     }
     public function index(Request $request)
     {
-        $posts = PostModel::with('get_media')->latest()->paginate(10);
+        $posts = PostModel::with('get_media')->latest()->paginate(5);
 
         return response()->json($this->payload($posts, 200, 'Posts Fetched'));
     }
